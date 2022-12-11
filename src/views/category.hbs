@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+
+    {{#if category_section}}
+      <div class="col s12 m8" style='margin-top:20px;'>
+        <form class="card-login" style='width:100%' action="/category" method="POST" autocomplete="off">
+          <h4 align='center'>Crear categoria</h4>
+          <label for="category-title" class='form-label'>Categoria:</label>
+          <input type="text" id="category-title" name="category" class='form-item' placeholder="Nombre de la categoria">
+          <p></p>
+          <label for="category-description" class='form-label'>Descripción (breve):</label>
+          <input type="text" id="category-description" name="description" class='form-item' placeholder="Descripción (breve)">
+          <div class="">
+            <button type="submit" class="btn pink">
+              <i class="bi-send-fill"></i>
+              <strong>Crear</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    {{/if}}
+
+    {{#if update}}
+      <div class="col s12 m8" style='margin-top:20px;'>
+        <form class="card-login" style='width:100%' action="/category/update" method="POST" autocomplete="off">
+          <h4 align='center'>Actualizar Categoria</h4>
+          <label for="category-title" class='form-label'>Categoria:</label>
+          <input type="text" id="category-title" name="category" class='form-item' placeholder="Nombre de la categoria" value='{{category_update.category}}'>
+          <p></p>
+          <label for="category-description" class='form-label'>Descripción (breve):</label>
+          <input type="text" id="category-description" name="description" class='form-item' placeholder="Descripción (breve)" value='{{category_update.description}}'>
+
+          <input type="hidden" name="id" value="{{category_update._id}}">
+          <div class="">
+            <button type="submit" class="btn pink">
+              <i class="bi-send-fill"></i>
+              <strong>Crear</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    {{/if}}
+
+    {{#if category}}
+    <div class="col s12 m4 card">
+      <div class="card-content">
+        <h5>Categorias Existentes</h5>
+        <table>
+          <tr>
+            <td>Categoria</td>
+            <td>Cantidad</td>
+            <td>Actualizar</td>
+          </tr>
+          {{#each category}}
+            <tr>
+              <td>{{this.category}}</td>
+              <td><strong align='center'>{{this.cantidad}}</strong></td>
+              <td>
+                <a href="/category/update/{{this._id}}" class='btn green'>
+                  <i class="bi-pen-fill"></i>
+                </a>
+              </td>
+            </tr>
+          {{/each}}
+        </table>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="/css/materialize.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/ico/bootstrap-icons.css">
+
+	<title>Aplicacion</title>
+</head>
+<body>
+
+	{{> nav }}
+
+	{{{ body }}}
+
+	<script src="/js/jquery-3.6.0.min.js" charset="utf-8"></script>
+	<script src="/js/materialize.min.js" charset="utf-8"></script>
+	<script src="/js/init.js" charset="utf-8"></script>
+	<script src="/js/main.js" charset="utf-8"></script>
+
+	{{#if succ}}
+	<span id='succ' style=''>{{succ}}</span>
+	<script type="text/javascript">
+		const succ = document.getElementById('succ');
+		setTimeout((e) => {
+			succ.style.display = 'none';
+		}, 2000);
+	</script>
+	{{/if}}
+
+	{{#if err}}
+	<span id='err' style=''>{{err}}</span>
+	<script type="text/javascript">
+		const err = document.getElementById('err');
+		setTimeout((e) => {
+			err.style.display = 'none';
+		}, 2000);
+	</script>
+	{{/if}}
+
+</body>
+</html>

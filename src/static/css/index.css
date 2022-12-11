@@ -1,0 +1,223 @@
+:root {
+  --primary: #111519;
+  --secondary: #062f4f;
+  --opcionality: #813772;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  user-select: none
+}
+
+a { text-decoration: none};
+li { list-style: none; }
+
+header {
+  padding: 10% 10% 5%;
+}
+
+header h1 {
+  font-size: 50px;
+  font-family: fantasy;
+  color: #fff;
+  text-shadow: 0 0 5px var(--secondary),0 0 5px var(--secondary),0 0 5px var(--secondary);
+}
+
+header nav {
+  padding: 10px 0;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav ul li {
+  margin: 0 1em;
+}
+
+header nav ul li a {
+  font-weight: bold;
+  font-family: fantasy;
+  color: #ccc;
+  font-size: 18px;
+  text-shadow: 0 0 5px var(--secondary),0 0 5px var(--secondary),0 0 5px var(--secondary);
+  transition: .5s color, .5s text-shadow;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px var(--primary),0 0 5px var(--primary),0 0 5px var(--primary);
+}
+
+main {
+  margin: auto;
+  display: grid;
+  gap: 80px;
+}
+
+#for_mi{
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+#for_mi h2, #skills-tec h2, footer h2, #education h2 {
+  font-size: 35px;
+  grid-column: 1/3;
+  text-align: center;
+  background: linear-gradient(to left, #af0d7d, #0d98df);
+  opacity: .8;
+  color: #fff;
+  text-shadow: 0 1px 3px #ddd, 0 2px 5px #000, 0 3px 8px #000, 0 3px 8px #000;
+  padding: 25px 0;
+}
+
+#for_mi .container {
+  width: 80%;
+  margin: 20px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+#for_mi .container-img {
+  margin: auto;
+  width: 100%;
+}
+
+#for_mi .container-img .img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+#for_mi .description {
+  padding: 0 10px;
+  font-size: 19px;
+}
+
+.description__list li {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.description__list li strong, .description__list li i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description__list li strong {
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(to left, #af0d7d50 , #0d98df50);
+}
+
+
+.description__list li i {
+  border: 4px solid #af0d7d50;
+  padding: 10px;
+}
+
+
+
+#education .container-education {
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+#education .container-education .education {
+  display: grid;
+  grid-gap: 10px;
+  border: 4px solid #af0d7d50;
+  padding: 20px 0;
+  margin: 10px 0 0;
+}
+
+#education .container-education .education h3 {
+  color: #212529;
+  font-size: 23px;
+  padding: 0 20px;
+}
+
+#education .container-education .education p {
+  background: #af0d7d11;
+  padding: 10px;
+  color: #212529;
+  font-size: 18px;
+}
+
+
+#skills-tec .container-skills {
+  margin: 15px 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+}
+
+#skills-tec .container-skills .skill {
+  width: 40%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+#skills-tec .container-skills .skill .skills-container-logo, #skills-tec .container-skills .skill .container-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skills-tec .container-skills .skill .container-description {
+  flex-direction: column;
+}
+
+#skills-tec .container-skills .skill .skills-container-logo {
+  padding: 10px;
+  background: linear-gradient(to left, #af0d7d50, #0d98df50);
+}
+
+#skills-tec .container-skills .skill .skills-container-logo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#skills-tec .container-skills .skill .container-description {
+  border: 4px solid #af0d7d50;
+  padding: 10px;
+}
+
+#skills-tec .container-skills .skill .container-description h3 {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+#skills-tec .container-skills .skill .container-description p {
+  color: #555;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  #for_mi .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #skills-tec .container-skills .skill {
+    width: 60%;
+  }
+}

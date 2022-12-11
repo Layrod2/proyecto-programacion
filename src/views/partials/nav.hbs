@@ -1,0 +1,80 @@
+<nav class='grey darken-3' role='navigation'>
+  <div class='container'>
+    <a href="/" id='logo-container' class='brand-logo pink-text'>Aplicación</a>
+
+    <a href='#' data-target='nav-movile' class='sidenav-trigger'>
+      <i class="bi-x-diamond-fill"></i>
+    </a>
+
+    <ul class='right hide-on-med-and-down'>
+      {{#if user}}
+        {{#if false}}
+          <li>
+            <a href='/note'>Notas</a>
+          </li>
+          <li>
+            <a href='/note/create'>Crear</a>
+          </li>
+          <li>
+            <a href='/porfolio'>portafolio</a>
+          </li>
+        {{/if}}
+        {{#if true}} <!-- ANIMALES -->
+          <li>
+            <a href="/category">Categorias</a>
+          </li>
+          <li>
+            <a href="/animales">Animales</a>
+          </li>
+          <li>
+            <a href="/animales/create">Agregar</a>
+          </li>
+        {{/if}}
+        <li>
+          <a href='/logout'>salir</a>
+        </li>
+      {{else}}
+        <li>
+          <a href='/register'>Registro</a>
+        </li>
+        <li>
+          <a href='/login'>Inicio</a>
+        </li>
+      {{/if}}
+    </ul>
+
+    <ul class='sidenav' id='nav-movile'>
+      {{#if user}}
+        <li>
+          <a href='/'><i class="bi-house-fill"></i>Inicio</a>
+        </li>
+        <li>
+          <a href='/animales'><i class="bi-bug-fill"></i>Animales</a>
+        </li>
+        <li>
+          <a href='/animales/create'><i class="bi-bug"></i>Agregar</a>
+        </li>
+        <li>
+          <a href='/category'><i class="bi-clipboard"></i>Categorias</a>
+        </li>
+        <li>
+          <a href='/porfolio'><i class="bi-person-circle"></i> Portafolio </a>
+        </li>
+        <li>
+          <a href='/logout'><i class="bi-easel-fill"></i>salir</a>
+        </li>
+      {{else}}
+        <li>
+          <a href='/'><i class="bi-house-fill"></i>Inicio</a>
+        </li>
+        <li>
+          <a href='/register'>Registro</a>
+        </li>
+        <li>
+          <a href='/login'>Iniciar Sesión</a>
+        </li>
+      {{/if}}
+    </ul>
+
+  </div>
+</nav>

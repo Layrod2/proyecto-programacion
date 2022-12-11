@@ -1,0 +1,29 @@
+<div class="container" style='margin-top:20px'>
+  <div class="row">
+    <form class="card-login" action="/register" method="POST" autocomplete="off">
+      <h4 align='center'>Iniciar Sesión</h4>
+      <label for="register-user" class='form-label'>Usuario:</label>
+      <input type="text" id="register-user" name="name" class='form-item' placeholder="Usuario">
+      <p></p>
+      <label for="login-email" class='form-label'>Correo Electronico:</label>
+      <input type="text" id="login-email" name="email" class='form-item' placeholder="Correo Electronico">
+      <p></p>
+      <label for="login-password" class='form-label'>Contraseña:</label>
+      <input type="password" id="login-password" name="password" class='form-item' placeholder="Contraseña">
+      <p></p>
+      <label for="login-password" class='form-label'>Repetir Contraseña:</label>
+      <input type="password" id="login-password" name="repeat_password" class='form-item' placeholder="Contraseña">
+      <div class="">
+        <button type="submit" class="btn pink">
+          <i class="bi-send-fill"></i>
+          <strong>Registrarte</strong>
+        </button>
+      </div>
+      <p class="footer">
+        ¿Ya tienes cuenta?
+        <br>
+        <a href="/login">Iniciar Sesión</a>
+      </p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+body {
+  background: #ddddff;
+}
+
+.card-login {
+  width: 550px;
+  margin: 0 auto;
+  background: rgba(255,255,255,.8);
+  padding: 2em 4em;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 3px 5em #000;
+}
+
+.form-animal {
+  background: rgba(255,255,255,.8);
+  padding: 3em 2em;
+  box-shadow: 0 3px 3em #000;
+  display: block;
+}
+
+.card-login::before {
+  content: '';
+  position: absolute;
+  background: rgba(100,100,100,.8);
+  inset: 0;
+  transform: rotate(-3deg);
+  z-index: -1
+}
+
+.card-login .form-item {
+  width: 100% !important;
+  background: rgba(255,255,255, .6) !important;
+  text-align: center  !important;
+  outline: none  !important;
+  border: none  !important;
+  border-radius: 25px  !important;
+  color: rgba(100,100,100,.8) !important;
+}
+
+.card-login .form-item:focus {
+  background: rgba(255,255,255, .8) !important;
+  color: rgba(100,100,100,.6) !important;
+  border: none  !important;
+}
+
+.card-login .form-label {
+  font-size: 18px;
+  color: rgba(50,50,50,.6) !important;
+}
+
+.card-login div {
+  display: flex;
+}
+
+.card-login div button {
+  margin-left: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.card-login .footer {
+  color: rgba(100,100,100,.6) !important;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+#err, #succ {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  background: #414549;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+}
+#err {
+  color: #ff404a;
+}
+#succ {
+  color: #25de9f;
+}
+
+@media screen and (min-width:600px) {
+  #err, #succ {
+    position: absolute;
+    top: 5em;
+    right: 10em;
+    width: auto;
+    height: 60px;
+    padding: .8em;
+    background: #414549;
+    text-align: center;
+  }
+}

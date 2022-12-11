@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row">
+
+    <!-- FOrmulario agregar animal -->
+    {{#if create}}
+    <div class="col s12 m10" style='margin-top:20px;'>
+      <form class="form-animal" style='width:100%' action="/animales/new" method="POST" autocomplete="off">
+        <h4 align='center'>Agregar Nuevo Animal</h4>
+
+        <label for="name" class='form-label'>Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Nombre">
+        <p>
+          <strong>Ejemplo:</strong> Camilo, Diego
+        </p>
+
+        <label for="fecha_nacimiento" class='form-label'>Fecha de nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Tipo de animal">
+        <p>
+          <strong>Formato:</strong> Dia/Mes/Año
+        </p>
+
+        <label for="group-category">Seleccionar categoria</label>
+        <div class="input-field col s12">
+          <select name="category" id="group-category">
+            <option value="" disabled selected>Seleccione una Categoria</option>
+            {{#if category}}
+              {{#each category}}
+                <option value="{{this._id}}">{{this.category}}</option>
+              {{/each}}
+            {{else}}
+              <div class="col card">
+                No tienes categorias creadas <a href="/categroy">Crealas aquí</a>
+              </div>
+            {{/if}}
+          </select>
+        </div>
+        <p>
+          <strong>Crear categoria:</strong> <a href="/category">Aquí</a>
+        </p>
+
+        <p class='row'>
+          <label class='col s12'>
+            <input type="radio" name="vacuna1" value="true">
+            <span>Vacuna 1</span>
+          </label>
+          <label class='col s12'>
+            <input type="radio" name="vacuna2" value="true">
+            <span>Vacuna 2</span>
+          </label>
+          <label class='col s12'>
+            <input type="radio" name="vacuna3" value="true">
+            <span>Vacuna 3</span>
+          </label>
+        </p>
+
+        <div class="">
+          <h6 align='center'>Verifica que todos los datos esten correctos</h6>
+        </div>
+
+        <button type="submit" class="btn pink col s12">
+          <i class="bi-send-fill"></i>
+          <strong>Agregar</strong>
+        </button>
+
+      </form>
+    </div>
+    {{/if}}
+
+    {{#if update}}
+    <div class="col s12 m10" style='margin-top:20px;'>
+      <form class="form-animal" style='width:100%' action="/animales/update" method="POST" autocomplete="off">
+        <h5 align='center'>Actualizar Animal</h5>
+
+        <label for="name" class='form-label'>Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Nombre" value='{{ani_up.name}}'>
+
+        <label for="fecha_nacimiento" class='form-label'>Fecha de nacimiento:</label>
+        <input type="text" disabled id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Tipo de animal" value='{{ani_up.fecha_nacimiento}}'>
+
+        <label for="group-category">Categoria</label>
+        <input type="text" name="category" disabled value="{{ani_up.category.category}}">
+
+        <p class='row'>
+          {{#each ani_up.vacunas}}
+            {{#vacunadoQuery this}}
+              {{{this}}}
+            {{/vacunadoQuery}}
+          {{/each}}
+        </p>
+
+        <div class="">
+          <h6 align='center'>Verifica que todos los datos esten correctos</h6>
+        </div>
+
+        <input type="hidden" name="id" value="{{ani_up._id}}">
+        <button type="submit" class="btn pink col s12">
+          <i class="bi-send-fill"></i>
+          <strong>Agregar</strong>
+        </button>
+
+      </form>
+    </div>
+    {{/if}}
+
+    {{#if animal}}
+      {{#if animales}}
+        <h4 align='center' class='grey-text'>Animales Almacenados</h4>
+        {{#each animales}}
+          <div class="col s12 card" style='margin-top: 20px'>
+            <div class="card-content">
+              <h5 align='center'>{{this.name}}</h5>
+              <h6 align='center' class='grey-text'>{{this.category.category}}</h6>
+              <p>
+                <strong>Fecha de nacimiento:</strong>
+                <p class='grey-text'>{{this.fecha_nacimiento}}</p>
+              </p>
+              <table>
+                {{#each this.vacunas}}
+                {{this.vacuna}}
+                  <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.status_string}}</td>
+                    <td>{{this.date}}</td>
+                  </tr>
+                {{/each}}
+              </table>
+            </div>
+            <div class="container">
+              <div class="row">
+                <a href="/animales/update/{{this._id}}" class='white-text col s6 btn green'>
+                  <strong>Actualizar</strong>
+                </a>
+                <form class="" action="/animales/delete" method="POST">
+                  <input type="hidden" name="anm_id" value="{{this._id}}">
+                  <input type="hidden" name="cat_id" value="{{this.category_id}}">
+                  <button type="submit" class="col s6 btn red" >Eliminar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+        {{else}}
+          <h4 align='center' class='grey-text'>No tienes animales almacenados</h4>
+          <h5 align='center'><a href="/animales/create">Agregar</a> </h5>
+        {{/if}}
+    {{/if}}
+
+  </div>
+</div>
